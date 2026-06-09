@@ -33,12 +33,12 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
+          git fetch origin
+          git reset --hard origin/main
+
           git add forecast/03.json
 
-          if git diff --cached --quiet; then
-            echo "No changes"
-          else
-            git commit -m "update forecast 03"
-            git pull --rebase origin main
-            git push origin main
-          fi
+          git commit -m "update forecast 03" || exit 0
+
+          git push origin main
+       fi
