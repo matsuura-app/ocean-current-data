@@ -1,49 +1,36 @@
 name: Update Current Forecast 03
 
 on:
-  schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
-
-# 他のエリアの更新ワークフローと実行タイミングが重なった場合、
-# 競合しないように順番待ち（キューイング）させる設定
-concurrency:
-  group: ocean-forecast-update-group
-  cancel-in-progress: false
+schedule:
+- cron: ‘0 * * * *’
+workflow_dispatch:
 
 permissions:
-  contents: write
+contents: write
 
 jobs:
-  update:
-    runs-on: ubuntu-latest
+update:
+runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Fetch data
-        run: |
-          mkdir -p forecast
-          # --fail でAPIエラー時に処理を止め、--retry 3 でサーバーの一時的な不調に備えます
-          curl --fail --retry 3 "https://my-ocean-api.onrender.com/umishiru_forecast?areaCode=03" \
-          -o forecast/03.json
-
-      - name: Commit
-        run: |
-          # GitHub公式のBotアカウントとしてコミットログに残るように設定
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add forecast/03.json
-
-          # 変更（差分）がある場合のみコミットとプッシュを実行
-          git diff --cached --quiet || (
-            git commit -m "update forecast 03"
-            
-            # 【重要】プッシュ直前にリモートの最新状態を取り込みます。
-            # 万が一他のエリアのファイル更新と衝突しても、自動でマージ（融合）します。
-            git pull --rebase -X theirs origin main
-            
-            git push
-          )
+steps:
+  - name: Checkout
+    uses: actions/checkout@v4
+    with:
+      fetch-depth: 0
+  - name: Fetch data
+    run: |
+      mkdir -p forecast
+      curl -L "https://my-ocean-api.onrender.com/umishiru_forecast?areaCode=03" \
+      -o forecast/03.json
+  - name: Commit and Push
+    run: |
+      git config user.name "github-actions"
+      git config user.email "actions@github.com"
+      git add forecast/03.json
+      if git diff --cached --quiet; then
+        echo "No changes"
+      else
+        git commit -m "update forecast 03"
+        git pull --rebase origin main
+        git push origin main
+      fi
