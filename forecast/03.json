@@ -1,0 +1,18 @@
+{
+  "source": "umishiru",
+  "areaCode": "03",
+  "name": "呉",
+  "updated": "2026-06-09T12:00:00Z",
+  "data": [
+    {
+      "hour": 0,
+      "speed": 0.8,
+      "direction": 220
+    },
+    {
+      "hour": 1,
+      "speed": 0.9,
+      "direction": 225
+    }
+  ]
+}
