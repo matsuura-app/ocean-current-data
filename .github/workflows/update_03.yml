@@ -2,7 +2,7 @@ name: Update Current Forecast 03
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 16 * * *'
   workflow_dispatch:
 
 permissions:
