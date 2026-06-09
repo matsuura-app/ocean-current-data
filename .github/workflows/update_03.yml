@@ -16,8 +16,7 @@ jobs:
       - name: Fetch data
         run: |
           mkdir -p forecast
-          curl "https://my-ocean-api.onrender.com/umishiru_forecast?areaCode=03" \
-            -o forecast/03.json
+          curl "https://my-ocean-api.onrender.com/umishiru_forecast?areaCode=03" -o forecast/03.json
 
       - name: Commit
         run: |
