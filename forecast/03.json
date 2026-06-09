@@ -1,18 +1,1 @@
-{
-  "source": "umishiru",
-  "areaCode": "03",
-  "name": "呉",
-  "updated": "2026-06-09T12:00:00Z",
-  "data": [
-    {
-      "hour": 0,
-      "speed": 0.8,
-      "direction": 220
-    },
-    {
-      "hour": 1,
-      "speed": 0.9,
-      "direction": 225
-    }
-  ]
-}
+{"status":"success","generated_at":"2026-06-09T09:37:25.148831+09:00","data":[{"time":0,"speed":0.96,"direction":279.35},{"time":1,"speed":1.37,"direction":282.05},{"time":2,"speed":1.52,"direction":286.65},{"time":3,"speed":1.39,"direction":293.67},{"time":4,"speed":0.96,"direction":304.28},{"time":5,"speed":0.33,"direction":341.09},{"time":6,"speed":0.61,"direction":94.7},{"time":7,"speed":1.21,"direction":108.97},{"time":8,"speed":1.47,"direction":112.25},{"time":9,"speed":1.33,"direction":112.25},{"time":10,"speed":0.87,"direction":110.88},{"time":11,"speed":0.28,"direction":111.98},{"time":12,"speed":0.3,"direction":279.81},{"time":13,"speed":0.77,"direction":283.43},{"time":14,"speed":1.08,"direction":287.48},{"time":15,"speed":1.15,"direction":293.8},{"time":16,"speed":0.95,"direction":302.87},{"time":17,"speed":0.49,"direction":322.72},{"time":18,"speed":0.33,"direction":74.14},{"time":19,"speed":0.9,"direction":107.06},{"time":20,"speed":1.25,"direction":114.29},{"time":21,"speed":1.23,"direction":117.61},{"time":22,"speed":0.88,"direction":121.16},{"time":23,"speed":0.36,"direction":137.38},{"time":24,"speed":0.31,"direction":253.24},{"time":25,"speed":0.79,"direction":274.26},{"time":26,"speed":1.16,"direction":280.5},{"time":27,"speed":1.33,"direction":286.26},{"time":28,"speed":1.22,"direction":293.19},{"time":29,"speed":0.81,"direction":303.8},{"time":30,"speed":0.25,"direction":355.2},{"time":31,"speed":0.66,"direction":96.46},{"time":32,"speed":1.2,"direction":107.92},{"time":33,"speed":1.41,"direction":111.47},{"time":34,"speed":1.26,"direction":112.5},{"time":35,"speed":0.85,"direction":112.42},{"time":36,"speed":0.32,"direction":113.82},{"time":37,"speed":0.23,"direction":283.75},{"time":38,"speed":0.74,"direction":288.28},{"time":39,"speed":1.11,"direction":291.45},{"time":40,"speed":1.25,"direction":295.91},{"time":41,"speed":1.09,"direction":302.47},{"time":42,"speed":0.63,"direction":316.25},{"time":43,"speed":0.24,"direction":46.81},{"time":44,"speed":0.73,"direction":104.06},{"time":45,"speed":1.08,"direction":114.31},{"time":46,"speed":1.12,"direction":119.82},{"time":47,"speed":0.87,"direction":125.57}]}
