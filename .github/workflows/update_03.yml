@@ -22,13 +22,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch data
-        run: |
-          mkdir -p forecast
-          curl -L "https://my-ocean-api.onrender.com/umishiru_forecast?areaCode=03" \
-            -o forecast/03.json
-
-      - name: Commit and Push
+      - name: Fetch and Commit
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
@@ -45,4 +39,3 @@ jobs:
           git commit -m "update forecast 03" || exit 0
 
           git push origin main
-       fi
