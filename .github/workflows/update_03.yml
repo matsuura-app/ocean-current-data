@@ -1,13 +1,13 @@
-name: Update Current Forecast 03
+name: Update All Forecasts
 
 on:
   schedule:
-    - cron: '0 16 * * *'
+    - cron: '0 16 * * *'  # JST 01:00（UTC 16:00）
   workflow_dispatch:
 
 concurrency:
-  group: forecast-03
-  cancel-in-progress: true
+  group: ocean-forecast
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -19,23 +19,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Fetch and Commit
+      - name: Setup git
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-          git fetch origin
-          git reset --hard origin/main
-
+      - name: Fetch all areas
+        run: |
           mkdir -p forecast
-          curl -L "https://my-ocean-api.onrender.com/umishiru_forecast?areaCode=03" \
-            -o forecast/03.json
 
-          git add forecast/03.json
+          AREAS="03 01 02 04 05 06 07 08 S01"
 
-          git commit -m "update forecast 03" || exit 0
+          for area in $AREAS
+          do
+            echo "Fetching $area"
+            curl -L "https://my-ocean-api.onrender.com/umishiru_forecast?areaCode=$area" \
+              -o "forecast/${area}.json"
+          done
 
+      - name: Commit and Push (safe)
+        run: |
+          git add forecast
+
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+
+          git commit -m "update all forecasts"
           git push origin main
