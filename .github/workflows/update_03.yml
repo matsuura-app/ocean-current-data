@@ -15,25 +15,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        # tokenの指定は不要なので削除してスッキリさせています
 
       - name: Fetch data
         run: |
           mkdir -p forecast
-          # --fail でAPIエラー時に処理を止め、--retry 3 で3回まで再試行します
           curl --fail --retry 3 "https://my-ocean-api.onrender.com/umishiru_forecast?areaCode=03" \
           -o forecast/03.json
 
       - name: Commit
         run: |
-          # GitHub公式のBotアカウントとして認識される設定に変更
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add forecast/03.json
 
-          # 変更がある場合のみコミットしてプッシュ
+          # 変更がある場合のみ処理を実行
           git diff --cached --quiet || (
             git commit -m "update forecast 03"
+            
+            # 【ここが重要！】プッシュ直前にリモートの最新状態を取得して、自分のコミットをその上に乗せる
+            git pull --rebase origin main
+            
             git push
           )
