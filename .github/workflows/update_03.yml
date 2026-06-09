@@ -36,6 +36,10 @@ jobs:
           git fetch origin
           git reset --hard origin/main
 
+          mkdir -p forecast
+          curl -L "https://my-ocean-api.onrender.com/umishiru_forecast?areaCode=03" \
+            -o forecast/03.json
+
           git add forecast/03.json
 
           git commit -m "update forecast 03" || exit 0
