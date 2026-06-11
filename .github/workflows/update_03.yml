@@ -64,8 +64,6 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-          git pull --rebase origin main
-
           git add forecast
 
           if git diff --cached --quiet; then
@@ -75,4 +73,4 @@ jobs:
 
           git commit -m "update all forecasts"
 
-          git push origin main
+          git push --force-with-lease origin HEAD:main
