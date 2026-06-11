@@ -1,16 +1,17 @@
-name: Update All Forecasts
+name: Update Umishiru
 
 on:
   schedule:
-    - cron: '0 16 * * *'  # JST 01:00（UTC 16:00）
+    - cron: '0 16 * * *'   # JST 01:00
+    - cron: '0 0 * * *'    # JST 09:00
   workflow_dispatch:
-
-concurrency:
-  group: ocean-forecast
-  cancel-in-progress: false
 
 permissions:
   contents: write
+
+concurrency:
+  group: umishiru-update
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -20,26 +21,49 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup git
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install packages
+        run: |
+          pip install requests
+
+      - name: Check already updated today
+        id: check
+        run: |
+          TODAY=$(TZ=Asia/Tokyo date +%F)
+
+          if [ -f forecast/update_status.json ]; then
+            SAVED=$(python -c "import json; print(json.load(open('forecast/update_status.json'))['date'])")
+
+            if [ "$TODAY" = "$SAVED" ]; then
+              echo "already=true" >> $GITHUB_OUTPUT
+            else
+              echo "already=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "already=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Skip if already updated
+        if: steps.check.outputs.already == 'true'
+        run: |
+          echo "Already updated today"
+          exit 0
+
+      - name: Fetch forecasts
+        env:
+          MSIL_API_KEY: ${{ secrets.MSIL_API_KEY }}
+        run: |
+          python scripts/update_umishiru.py
+
+      - name: Commit and Push
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-      - name: Fetch all areas
-        run: |
-          mkdir -p forecast
-
-          AREAS="03 01 02 04 05 06 07 08 S01"
-
-          for area in $AREAS
-          do
-            echo "Fetching $area"
-            curl -L "https://my-ocean-api.onrender.com/umishiru_forecast?areaCode=$area" \
-              -o "forecast/${area}.json"
-          done
-
-      - name: Commit and Push (safe)
-        run: |
           git add forecast
 
           if git diff --cached --quiet; then
@@ -47,5 +71,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "update all forecasts"
-          git push origin main
+          git commit -m "update umishiru forecasts"
+          git push
