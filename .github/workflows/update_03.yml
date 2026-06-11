@@ -72,5 +72,7 @@ jobs:
           fi
 
           git commit -m "update all forecasts"
+   
+          git pull --rebase origin main
 
-          git push --force-with-lease origin HEAD:main
+          git push origin main
