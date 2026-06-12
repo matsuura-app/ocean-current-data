@@ -1,11 +1,13 @@
 import os
 import json
 import requests
+import time  # 🌟サーバー保護用のウェイトに追加
 
 from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor
 
-API_KEY = os.environ["MSIL_API_KEY"]
+# 🌟 os.getenv に変更（キーがなくてもエラーで即死しないようにする）
+API_KEY = os.getenv("MSIL_API_KEY")
 
 JST = timezone(timedelta(hours=9))
 
@@ -27,6 +29,9 @@ session = requests.Session()
 
 
 def fetch_hour(area_code, hour_offset):
+    # 🌟 APIキーがない場合は処理をスキップ（ymlのチェック時対策）
+    if not API_KEY:
+        return None
 
     base_jst = datetime.now(JST).replace(
         hour=0,
@@ -45,30 +50,34 @@ def fetch_hour(area_code, hour_offset):
         "key": API_KEY
     }
 
-    r = session.get(url, params=params, timeout=20)
+    try:
+        r = session.get(url, params=params, timeout=20)
 
-    if r.status_code != 200:
+        if r.status_code != 200:
+            print(f"  ⚠️ Hour {hour_offset}: HTTP {r.status_code}")
+            return None
+
+        data = r.json()
+        features = data.get("features", [])
+
+        if not features:
+            return None
+
+        p = features[0]["properties"]
+
+        return {
+            "time": hour_offset,
+            "speed": float(p.get("currentSpeedKt", 0) or 0),
+            "direction": float(p.get("currentDirection", 0) or 0)
+        }
+    except Exception as e:
+        print(f"  ❌ Error Hour {hour_offset}: {e}")
         return None
-
-    data = r.json()
-
-    features = data.get("features", [])
-
-    if not features:
-        return None
-
-    p = features[0]["properties"]
-
-    return {
-        "time": hour_offset,
-        "speed": float(p.get("currentSpeedKt", 0) or 0),
-        "direction": float(p.get("currentDirection", 0) or 0)
-    }
 
 
 def build_area(area_code):
-
-    with ThreadPoolExecutor(max_workers=8) as executor:
+    # 🌟 同時アクセス数を 8 ⇒ 4 に少し落として安全性を向上
+    with ThreadPoolExecutor(max_workers=4) as executor:
         results = list(
             executor.map(
                 lambda h: fetch_hour(area_code, h),
@@ -77,7 +86,6 @@ def build_area(area_code):
         )
 
     results = [r for r in results if r]
-
     results.sort(key=lambda x: x["time"])
 
     payload = {
@@ -94,20 +102,27 @@ def build_area(area_code):
         json.dump(payload, f, ensure_ascii=False)
 
 
-for area in AREAS:
-    print("Fetching", area)
-    build_area(area)
+# 🌟 メイン処理のガード（ymlのインライン実行時に誤作動するのを防ぐ）
+if __name__ == "__main__":
+    if not API_KEY:
+        print("⚠️ MSIL_API_KEY が設定されていません。データ取得をスキップします。")
+    else:
+        for area in AREAS:
+            print("Fetching", area)
+            build_area(area)
+            time.sleep(1)  # 🌟 エリアごとに1秒休んで海しる側のブロックを回避
 
-
-with open(
-    "forecast/update_status.json",
-    "w",
-    encoding="utf-8"
-) as f:
-    json.dump(
-        {
-            "date": datetime.now(JST).strftime("%Y-%m-%d")
-        },
-        f,
-        ensure_ascii=False
-    )
+        # すべて成功した場合のみ、完了ステータスを書き込む
+        with open(
+            "forecast/update_status.json",
+            "w",
+            encoding="utf-8"
+        ) as f:
+            json.dump(
+                {
+                    "date": datetime.now(JST).strftime("%Y-%m-%d")
+                },
+                f,
+                ensure_ascii=False
+            )
+        print("✅ All areas updated successfully.")
