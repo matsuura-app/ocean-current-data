@@ -1,6 +1,6 @@
 {
   "status": "success",
-  "generated_at": "2026-06-14T01:14:20.571829+09:00",
+  "generated_at": "2026-06-14T03:13:45.154048+09:00",
   "data": [
     {
       "time": 0,
@@ -108,11 +108,6 @@
       "direction": 87.34
     },
     {
-      "time": 21,
-      "speed": 0.06,
-      "direction": 92.73
-    },
-    {
       "time": 22,
       "speed": 0.2,
       "direction": 263.77
@@ -138,11 +133,6 @@
       "direction": 86.74
     },
     {
-      "time": 28,
-      "speed": 0.22,
-      "direction": 82.49
-    },
-    {
       "time": 29,
       "speed": 0.31,
       "direction": 82.71
@@ -153,14 +143,14 @@
       "direction": 84.99
     },
     {
-      "time": 31,
-      "speed": 0.65,
-      "direction": 85.91
-    },
-    {
       "time": 32,
       "speed": 0.49,
       "direction": 86.1
+    },
+    {
+      "time": 33,
+      "speed": 0.19,
+      "direction": 86.13
     },
     {
       "time": 34,
