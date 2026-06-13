@@ -3,7 +3,7 @@ name: Update Umishiru
 on:
   schedule:
     - cron: '0 17 * * *'   # JST 02:00
-    - cron: '0 19 * * *'    # JST 04:00
+    - cron: '0 19 * * *'   # JST 04:00 (失敗時保険)
   workflow_dispatch:
 
 permissions:
@@ -26,38 +26,58 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install packages
+      - name: Fetch forecasts from FastAPI
         run: |
-          pip install requests
+          python << 'EOF'
+          import requests
+          import json
+          import os
+          from datetime import datetime
 
-      - name: Check already updated today
-        id: check
-        run: |
-          TODAY=$(TZ=Asia/Tokyo date +%F)
+          AREAS = [
+              "01","02","03","04",
+              "05","06","07","08","S01"
+          ]
 
-          if [ -f forecast/update_status.json ]; then
-            SAVED=$(python -c "import json; print(json.load(open('forecast/update_status.json'))['date'])")
+          os.makedirs("forecast", exist_ok=True)
 
-            if [ "$TODAY" = "$SAVED" ]; then
-              echo "already=true" >> $GITHUB_OUTPUT
-            else
-              echo "already=false" >> $GITHUB_OUTPUT
-            fi
-          else
-            echo "already=false" >> $GITHUB_OUTPUT
-          fi
+          BASE_URL = "https://my-ocean-api.onrender.com"
 
-      - name: Skip if already updated
-        if: steps.check.outputs.already == 'true'
-        run: |
-          echo "Already updated today"
-          exit 0
+          for area in AREAS:
+              print("fetch", area)
 
-      - name: Fetch forecasts
-        env:
-          MSIL_API_KEY: ${{ secrets.MSIL_API_KEY }}
-        run: |
-          python scripts/update_umishiru.py
+              r = requests.get(
+                  f"{BASE_URL}/umishiru_forecast",
+                  params={"areaCode": area},
+                  timeout=120
+              )
+
+              r.raise_for_status()
+
+              with open(
+                  f"forecast/{area}.json",
+                  "w",
+                  encoding="utf-8"
+              ) as f:
+                  json.dump(
+                      r.json(),
+                      f,
+                      ensure_ascii=False,
+                      indent=2
+                  )
+
+          with open(
+              "forecast/update_status.json",
+              "w",
+              encoding="utf-8"
+          ) as f:
+              json.dump(
+                  {
+                      "date": datetime.now().strftime("%Y-%m-%d")
+                  },
+                  f
+              )
+          EOF
 
       - name: Commit and Push
         run: |
@@ -71,8 +91,8 @@ jobs:
             exit 0
           fi
 
-          git commit -m "update all forecasts"
-   
+          git commit -m "update forecasts"
+
           git pull --rebase origin main
 
           git push origin main
