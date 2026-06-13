@@ -25,7 +25,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
+      - name: Install packages
+        run: |
+          pip install requests
       - name: Fetch forecasts from FastAPI
         run: |
           python << 'EOF'
