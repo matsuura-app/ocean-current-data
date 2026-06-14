@@ -1,153 +1,152 @@
 name: HYCOM Batch Update
 
 on:
-schedule:
-- cron: ‘0 1 * * *’
-workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *'   # JST 10:00
+  workflow_dispatch: 
 
 permissions:
-contents: write
+  contents: write
 
 concurrency:
-group: hycom-batch
-cancel-in-progress: false
+  group: hycom-batch
+  cancel-in-progress: false
 
 jobs:
-update:
-runs-on: ubuntu-latest
+  update:
+    runs-on: ubuntu-latest
 
-strategy:
-  fail-fast: false
-  max-parallel: 1
-  matrix:
-    include:
-      - point: goto
-        lat: 32.7
-        lon: 128.7
-      - point: amakusa
-        lat: 32.3
-        lon: 130.0
-      - point: iki
-        lat: 33.9
-        lon: 129.7
-      - point: shimonoseki_off
-        lat: 34.1
-        lon: 130.7
-      - point: bungo
-        lat: 33.2
-        lon: 132.0
-      - point: miyazaki_off
-        lat: 31.9
-        lon: 131.9
-      - point: kochi_off
-        lat: 33.3
-        lon: 133.5
-      - point: kii
-        lat: 34.0
-        lon: 134.8
-      - point: kushimoto
-        lat: 33.47
-        lon: 135.78
-      - point: omaezaki
-        lat: 34.60
-        lon: 138.20
-      - point: suruga
-        lat: 34.8
-        lon: 138.6
-      - point: sagami
-        lat: 35.0
-        lon: 139.4
-      - point: choshi_offshore
-        lat: 35.5
-        lon: 141.0
-      - point: iwate
-        lat: 39.6
-        lon: 141.9
-      - point: sendai
-        lat: 38.3
-        lon: 141.0
-      - point: fukushima
-        lat: 36.9
-        lon: 140.9
-      - point: hachinohe
-        lat: 41.4
-        lon: 142.2
-      - point: hakodate
-        lat: 41.8
-        lon: 140.7
-      - point: hirosaki
-        lat: 41.2
-        lon: 140.2
-      - point: akita
-        lat: 39.7
-        lon: 139.9
-      - point: niigata
-        lat: 37.9
-        lon: 139.0
-      - point: toyama
-        lat: 37.4
-        lon: 137.9
-      - point: kanazawa
-        lat: 36.6
-        lon: 136.6
-      - point: wakasa
-        lat: 35.9
-        lon: 135.6
-      - point: matsue_off
-        lat: 35.9
-        lon: 133.4
-      - point: tottori
-        lat: 35.7
-        lon: 134.4
-      - point: shimane
-        lat: 34.9
-        lon: 132.1
-      - point: hagi
-        lat: 34.5
-        lon: 131.3
-      - point: sapporo
-        lat: 43.2
-        lon: 140.9
-      - point: rumoi
-        lat: 43.9
-        lon: 141.6
-      - point: monbetsu
-        lat: 44.3
-        lon: 143.3
-      - point: kushiro
-        lat: 42.9
-        lon: 144.4
-      - point: nemuro
-        lat: 43.3
-        lon: 145.9
-steps:
-  - name: Checkout
-    uses: actions/checkout@v4
-  - name: Fetch HYCOM Forecast from Cache
-    run: |
-      set -e
-      mkdir -p forecast_hycom
-      echo "Fetching Cached Data for ${{ matrix.point }}"
-      curl -L --max-time 120 \
-        "https://my-ocean-api.onrender.com/forecast?lat=${{ matrix.lat }}&lon=${{ matrix.lon }}" \
-        -o forecast_hycom/${{ matrix.point }}.json
-      python - <<EOF
-      import json
-      with open("forecast_hycom/${{ matrix.point }}.json") as f:
-          data = json.load(f)
-      if data.get("status") != "success":
-          raise Exception("HYCOM cache not ready")
-      EOF
-      sleep 5
-  - name: Commit and Push
-    run: |
-      git config user.name "github-actions"
-      git config user.email "actions@github.com"
-      git add forecast_hycom
-      if git diff --cached --quiet; then
-        echo "No changes"
-        exit 0
-      fi
-      git commit -m "update hycom forecasts"
-      git pull --rebase origin main
-      git push origin main
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - point: goto
+            lat: 32.7
+            lon: 128.7
+          - point: amakusa
+            lat: 32.3
+            lon: 130.0
+          - point: iki
+            lat: 33.9
+            lon: 129.7
+          - point: shimonoseki_off
+            lat: 34.1
+            lon: 130.7
+          - point: bungo
+            lat: 33.2
+            lon: 132.0
+          - point: miyazaki_off
+            lat: 31.9
+            lon: 131.9
+          - point: kochi_off
+            lat: 33.3
+            lon: 133.5
+          - point: kii
+            lat: 34.0
+            lon: 134.8
+          - point: kushimoto
+            lat: 33.47
+            lon: 135.78
+          - point: omaezaki
+            lat: 34.60
+            lon: 138.20
+          - point: suruga
+            lat: 34.8
+            lon: 138.6
+          - point: sagami
+            lat: 35.0
+            lon: 139.4
+          - point: choshi_offshore
+            lat: 35.5
+            lon: 141.0
+          - point: iwate
+            lat: 39.6
+            lon: 141.9
+          - point: sendai
+            lat: 38.3
+            lon: 141.0
+          - point: fukushima
+            lat: 36.9
+            lon: 140.9
+          - point: hachinohe
+            lat: 41.4
+            lon: 142.2
+          - point: hakodate
+            lat: 41.8
+            lon: 140.7
+          - point: hirosaki
+            lat: 41.2
+            lon: 140.2
+          - point: akita
+            lat: 39.7
+            lon: 139.9
+          - point: niigata
+            lat: 37.9
+            lon: 139.0
+          - point: toyama
+            lat: 37.4
+            lon: 137.9
+          - point: kanazawa
+            lat: 36.6
+            lon: 136.6
+          - point: wakasa
+            lat: 35.9
+            lon: 135.6
+          - point: matsue_off
+            lat: 35.9
+            lon: 133.4
+          - point: tottori
+            lat: 35.7
+            lon: 134.4
+          - point: shimane
+            lat: 34.9
+            lon: 132.1
+          - point: hagi
+            lat: 34.5
+            lon: 131.3
+          - point: sapporo
+            lat: 43.2
+            lon: 140.9
+          - point: rumoi
+            lat: 43.9
+            lon: 141.6
+          - point: monbetsu
+            lat: 44.3
+            lon: 143.3
+          - point: kushiro
+            lat: 42.9
+            lon: 144.4
+          - point: nemuro
+            lat: 43.3
+            lon: 145.9
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch HYCOM Forecast from Cache
+        run: |
+          set -e
+
+          mkdir -p forecast_hycom
+
+          echo "Fetching Cached Data for ${{ matrix.point }} (Lat: ${{ matrix.lat }}, Lon: ${{ matrix.lon }})"
+
+          curl -L --max-time 30 \
+            "https://my-ocean-api.onrender.com/forecast?lat=${{ matrix.lat }}&lon=${{ matrix.lon }}" \
+            -o forecast_hycom/${{ matrix.point }}.json
+
+          sleep 5
+
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
+          git add forecast_hycom/${{ matrix.point }}.json
+
+          git commit -m "update hycom data: ${{ matrix.point }}" || exit 0
+
+          git pull --rebase origin main
+          git push origin main
