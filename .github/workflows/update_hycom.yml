@@ -2,7 +2,7 @@ name: HYCOM Batch Update
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # JST 12:00
+    - cron: '0 1 * * *'   # JST 10:00
   workflow_dispatch: 
 
 permissions:
