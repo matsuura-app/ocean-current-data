@@ -2,8 +2,8 @@ name: Update Umishiru
 
 on:
   schedule:
-    - cron: '0 17 * * *'   # JST 02:00
-    - cron: '0 19 * * *'   # JST 04:00 (失敗時保険)
+    - cron: '30 16 * * *'   # JST 01:30
+    - cron: '0 18 * * *'   # JST 03:00 (失敗時保険)
   workflow_dispatch:
 
 permissions:
