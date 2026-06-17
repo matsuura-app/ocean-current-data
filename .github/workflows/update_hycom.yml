@@ -26,7 +26,7 @@ jobs:
             lon: 128.7
           - point: amakusa
             lat: 32.3
-            lon: 130.0
+            lon: 129.0
           - point: iki
             lat: 33.9
             lon: 129.7
@@ -64,8 +64,8 @@ jobs:
             lat: 39.6
             lon: 141.9
           - point: sendai
-            lat: 38.3
-            lon: 141.0
+            lat: 38.2
+            lon: 142.5
           - point: fukushima
             lat: 36.9
             lon: 140.9
