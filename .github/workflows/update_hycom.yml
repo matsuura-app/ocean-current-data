@@ -62,7 +62,7 @@ jobs:
             lon: 141.0
           - point: iwate
             lat: 39.6
-            lon: 141.9
+            lon: 143.5
           - point: sendai
             lat: 38.2
             lon: 142.5
@@ -73,8 +73,8 @@ jobs:
             lat: 41.4
             lon: 142.2
           - point: hakodate
-            lat: 41.8
-            lon: 140.7
+            lat: 42.0
+            lon: 139.5
           - point: hirosaki
             lat: 41.2
             lon: 140.2
