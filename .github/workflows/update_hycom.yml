@@ -46,8 +46,8 @@ jobs:
             lat: 34.0
             lon: 134.8
           - point: kushimoto
-            lat: 33.47
-            lon: 135.78
+            lat: 33.5
+            lon: 136.8
           - point: omaezaki
             lat: 34.60
             lon: 138.20
@@ -112,8 +112,8 @@ jobs:
             lat: 43.9
             lon: 141.6
           - point: monbetsu
-            lat: 44.3
-            lon: 143.3
+            lat: 44.8
+            lon: 144.5
           - point: kushiro
             lat: 42.9
             lon: 144.4
