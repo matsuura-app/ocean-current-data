@@ -82,8 +82,8 @@ jobs:
             lat: 39.7
             lon: 139.9
           - point: niigata
-            lat: 37.9
-            lon: 139.0
+            lat: 38.2
+            lon: 137.8
           - point: toyama
             lat: 37.4
             lon: 137.9
@@ -106,8 +106,8 @@ jobs:
             lat: 34.5
             lon: 131.3
           - point: sapporo
-            lat: 43.2
-            lon: 140.9
+            lat: 43.5
+            lon: 140.0
           - point: rumoi
             lat: 43.9
             lon: 141.6
