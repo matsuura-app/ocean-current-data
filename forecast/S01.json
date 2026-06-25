@@ -1,6 +1,6 @@
 {
   "status": "success",
-  "generated_at": "2026-06-26T01:13:59.139297+09:00",
+  "generated_at": "2026-06-26T03:13:24.137096+09:00",
   "data": [
     {
       "time": 0,
@@ -73,11 +73,6 @@
       "direction": 86.73
     },
     {
-      "time": 14,
-      "speed": 0.36,
-      "direction": 85.89
-    },
-    {
       "time": 15,
       "speed": 0.41,
       "direction": 85.78
@@ -113,11 +108,6 @@
       "direction": 265.26
     },
     {
-      "time": 22,
-      "speed": 0.19,
-      "direction": 262.54
-    },
-    {
       "time": 24,
       "speed": 0.19,
       "direction": 93.76
@@ -133,14 +123,14 @@
       "direction": 88.79
     },
     {
-      "time": 27,
-      "speed": 0.39,
-      "direction": 87.53
-    },
-    {
       "time": 28,
       "speed": 0.42,
       "direction": 86.91
+    },
+    {
+      "time": 29,
+      "speed": 0.41,
+      "direction": 86.7
     },
     {
       "time": 30,
@@ -158,11 +148,6 @@
       "direction": 266.28
     },
     {
-      "time": 33,
-      "speed": 0.12,
-      "direction": 264.05
-    },
-    {
       "time": 34,
       "speed": 0.1,
       "direction": 260.69
@@ -178,11 +163,6 @@
       "direction": 89.58
     },
     {
-      "time": 37,
-      "speed": 0.26,
-      "direction": 87.11
-    },
-    {
       "time": 38,
       "speed": 0.29,
       "direction": 85.54
@@ -191,6 +171,11 @@
       "time": 39,
       "speed": 0.34,
       "direction": 84.93
+    },
+    {
+      "time": 40,
+      "speed": 0.44,
+      "direction": 85.5
     },
     {
       "time": 41,
@@ -206,6 +191,11 @@
       "time": 43,
       "speed": 0.3,
       "direction": 86.08
+    },
+    {
+      "time": 44,
+      "speed": 0.03,
+      "direction": 80.58
     },
     {
       "time": 45,
