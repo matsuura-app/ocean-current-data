@@ -1,4 +1,4 @@
-name: HYCOM Batch Update
+Name: HYCOM Batch Update
 
 on:
   schedule:
@@ -133,7 +133,10 @@ jobs:
 
           echo "Fetching Cached Data for ${{ matrix.point }} (Lat: ${{ matrix.lat }}, Lon: ${{ matrix.lon }})"
 
-          curl -L --max-time 30 \
+          # -A でブラウザのUser-Agentを指定し、Cloudflareのブロックを回避
+          # -f (--fail) でHTTPエラー(403等)の時に異常終了させて不完全なjsonコミットを予防
+          curl -L -f --max-time 30 \
+            -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
             "https://my-ocean-api.onrender.com/forecast?lat=${{ matrix.lat }}&lon=${{ matrix.lon }}" \
             -o forecast_hycom/${{ matrix.point }}.json
 
