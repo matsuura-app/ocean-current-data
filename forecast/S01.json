@@ -1,6 +1,6 @@
 {
   "status": "success",
-  "generated_at": "2026-09-02T01:13:33.034212+09:00",
+  "generated_at": "2026-09-02T03:13:00.532263+09:00",
   "data": [
     {
       "time": 0,
@@ -43,11 +43,6 @@
       "direction": 81.95
     },
     {
-      "time": 8,
-      "speed": 0.34,
-      "direction": 81.16
-    },
-    {
       "time": 9,
       "speed": 0.47,
       "direction": 83.91
@@ -63,11 +58,6 @@
       "direction": 86.83
     },
     {
-      "time": 12,
-      "speed": 0.12,
-      "direction": 89.25
-    },
-    {
       "time": 13,
       "speed": 0.13,
       "direction": 262.52
@@ -76,11 +66,6 @@
       "time": 14,
       "speed": 0.28,
       "direction": 263.6
-    },
-    {
-      "time": 15,
-      "speed": 0.24,
-      "direction": 261.83
     },
     {
       "time": 16,
@@ -103,6 +88,11 @@
       "direction": 85.41
     },
     {
+      "time": 20,
+      "speed": 0.38,
+      "direction": 84.18
+    },
+    {
       "time": 21,
       "speed": 0.48,
       "direction": 85.11
@@ -111,6 +101,11 @@
       "time": 22,
       "speed": 0.55,
       "direction": 86.22
+    },
+    {
+      "time": 23,
+      "speed": 0.43,
+      "direction": 86.82
     },
     {
       "time": 24,
@@ -123,6 +118,11 @@
       "direction": 265.06
     },
     {
+      "time": 26,
+      "speed": 0.27,
+      "direction": 264.9
+    },
+    {
       "time": 27,
       "speed": 0.26,
       "direction": 263.18
@@ -133,6 +133,11 @@
       "direction": 242.82
     },
     {
+      "time": 29,
+      "speed": 0.25,
+      "direction": 90.61
+    },
+    {
       "time": 30,
       "speed": 0.42,
       "direction": 87.45
@@ -141,6 +146,11 @@
       "time": 31,
       "speed": 0.4,
       "direction": 85.05
+    },
+    {
+      "time": 32,
+      "speed": 0.32,
+      "direction": 82.33
     },
     {
       "time": 33,
@@ -183,24 +193,19 @@
       "direction": 259.94
     },
     {
-      "time": 41,
-      "speed": 0.06,
-      "direction": 104.69
-    },
-    {
-      "time": 43,
-      "speed": 0.35,
-      "direction": 87.59
-    },
-    {
-      "time": 44,
-      "speed": 0.35,
-      "direction": 85.95
+      "time": 42,
+      "speed": 0.27,
+      "direction": 89.83
     },
     {
       "time": 45,
       "speed": 0.38,
       "direction": 85.44
+    },
+    {
+      "time": 46,
+      "speed": 0.47,
+      "direction": 86.14
     },
     {
       "time": 47,
