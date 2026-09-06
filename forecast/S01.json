@@ -1,6 +1,6 @@
 {
   "status": "success",
-  "generated_at": "2026-09-07T01:13:12.876655+09:00",
+  "generated_at": "2026-09-07T03:15:35.189505+09:00",
   "data": [
     {
       "time": 0,
@@ -19,12 +19,6 @@
       "estimated_time": "2026-09-07T02:00:00+09:00",
       "speed": 0.39,
       "direction": 86.4
-    },
-    {
-      "time": 3,
-      "estimated_time": "2026-09-07T03:00:00+09:00",
-      "speed": 0.4,
-      "direction": 85.84
     },
     {
       "time": 4,
@@ -49,12 +43,6 @@
       "estimated_time": "2026-09-07T07:00:00+09:00",
       "speed": 0.02,
       "direction": 107.02
-    },
-    {
-      "time": 8,
-      "estimated_time": "2026-09-07T08:00:00+09:00",
-      "speed": 0.03,
-      "direction": 245.43
     },
     {
       "time": 9,
@@ -93,10 +81,10 @@
       "direction": 85.36
     },
     {
-      "time": 16,
-      "estimated_time": "2026-09-07T16:00:00+09:00",
-      "speed": 0.46,
-      "direction": 86.4
+      "time": 15,
+      "estimated_time": "2026-09-07T15:00:00+09:00",
+      "speed": 0.42,
+      "direction": 85.88
     },
     {
       "time": 17,
@@ -111,10 +99,10 @@
       "direction": 86.6
     },
     {
-      "time": 20,
-      "estimated_time": "2026-09-07T20:00:00+09:00",
-      "speed": 0.23,
-      "direction": 264.8
+      "time": 19,
+      "estimated_time": "2026-09-07T19:00:00+09:00",
+      "speed": 0.05,
+      "direction": 264.82
     },
     {
       "time": 21,
@@ -127,6 +115,12 @@
       "estimated_time": "2026-09-07T22:00:00+09:00",
       "speed": 0.12,
       "direction": 256.81
+    },
+    {
+      "time": 23,
+      "estimated_time": "2026-09-07T23:00:00+09:00",
+      "speed": 0.07,
+      "direction": 107.57
     },
     {
       "time": 24,
@@ -145,6 +139,12 @@
       "estimated_time": "2026-09-08T02:00:00+09:00",
       "speed": 0.35,
       "direction": 86.79
+    },
+    {
+      "time": 27,
+      "estimated_time": "2026-09-08T03:00:00+09:00",
+      "speed": 0.44,
+      "direction": 85.84
     },
     {
       "time": 28,
@@ -187,6 +187,12 @@
       "estimated_time": "2026-09-08T10:00:00+09:00",
       "speed": 0.05,
       "direction": 248.94
+    },
+    {
+      "time": 35,
+      "estimated_time": "2026-09-08T11:00:00+09:00",
+      "speed": 0.09,
+      "direction": 96.42
     },
     {
       "time": 36,
@@ -235,12 +241,6 @@
       "estimated_time": "2026-09-08T19:00:00+09:00",
       "speed": 0.17,
       "direction": 86.01
-    },
-    {
-      "time": 44,
-      "estimated_time": "2026-09-08T20:00:00+09:00",
-      "speed": 0.13,
-      "direction": 265.69
     },
     {
       "time": 45,
