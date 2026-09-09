@@ -1,6 +1,6 @@
 {
   "status": "success",
-  "generated_at": "2026-09-10T01:13:07.688452+09:00",
+  "generated_at": "2026-09-10T03:15:35.176542+09:00",
   "data": [
     {
       "time": 0,
@@ -99,12 +99,6 @@
       "direction": 82.7
     },
     {
-      "time": 16,
-      "estimated_time": "2026-09-10T16:00:00+09:00",
-      "speed": 0.28,
-      "direction": 81.75
-    },
-    {
       "time": 17,
       "estimated_time": "2026-09-10T17:00:00+09:00",
       "speed": 0.48,
@@ -147,6 +141,12 @@
       "direction": 263.37
     },
     {
+      "time": 24,
+      "estimated_time": "2026-09-11T00:00:00+09:00",
+      "speed": 0.2,
+      "direction": 259.25
+    },
+    {
       "time": 25,
       "estimated_time": "2026-09-11T01:00:00+09:00",
       "speed": 0.06,
@@ -157,12 +157,6 @@
       "estimated_time": "2026-09-11T02:00:00+09:00",
       "speed": 0.24,
       "direction": 90.32
-    },
-    {
-      "time": 27,
-      "estimated_time": "2026-09-11T03:00:00+09:00",
-      "speed": 0.27,
-      "direction": 86.43
     },
     {
       "time": 28,
@@ -177,16 +171,22 @@
       "direction": 84.23
     },
     {
+      "time": 31,
+      "estimated_time": "2026-09-11T07:00:00+09:00",
+      "speed": 0.67,
+      "direction": 86.16
+    },
+    {
       "time": 32,
       "estimated_time": "2026-09-11T08:00:00+09:00",
       "speed": 0.46,
       "direction": 86.42
     },
     {
-      "time": 34,
-      "estimated_time": "2026-09-11T10:00:00+09:00",
-      "speed": 0.14,
-      "direction": 263.26
+      "time": 33,
+      "estimated_time": "2026-09-11T09:00:00+09:00",
+      "speed": 0.13,
+      "direction": 87.41
     },
     {
       "time": 36,
@@ -211,18 +211,6 @@
       "estimated_time": "2026-09-11T15:00:00+09:00",
       "speed": 0.29,
       "direction": 84.81
-    },
-    {
-      "time": 40,
-      "estimated_time": "2026-09-11T16:00:00+09:00",
-      "speed": 0.24,
-      "direction": 81.06
-    },
-    {
-      "time": 41,
-      "estimated_time": "2026-09-11T17:00:00+09:00",
-      "speed": 0.33,
-      "direction": 81.89
     },
     {
       "time": 42,
