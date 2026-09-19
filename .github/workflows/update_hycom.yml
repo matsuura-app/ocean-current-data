@@ -131,12 +131,92 @@ jobs:
 
           mkdir -p forecast_hycom
 
+          FILE="forecast_hycom/${{ matrix.point }}.json"
+          TEMP="/tmp/${{ matrix.point }}.json"
+
           echo "Fetching Cached Data for ${{ matrix.point }} (Lat: ${{ matrix.lat }}, Lon: ${{ matrix.lon }})"
 
           curl -L -f --max-time 30 \
             -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
             "https://my-ocean-api.onrender.com/forecast?lat=${{ matrix.lat }}&lon=${{ matrix.lon }}" \
-            -o forecast_hycom/${{ matrix.point }}.json
+            -o "$TEMP"
+
+          python3 - "$TEMP" "$FILE" <<'PY'
+          import json
+          import os
+          import sys
+          from datetime import datetime, timezone
+
+          new_file = sys.argv[1]
+          old_file = sys.argv[2]
+
+          with open(new_file, encoding="utf-8") as f:
+              new_data = json.load(f)
+
+          # Renderから正常なデータが来ているか確認
+          if new_data.get("status") != "success":
+              print("HYCOM data is not success. Keep existing GitHub data.")
+              sys.exit(0)
+
+          new_points = new_data.get("data", [])
+
+          if not new_points:
+              print("HYCOM data is empty. Keep existing GitHub data.")
+              sys.exit(0)
+
+          new_time = new_points[0].get("estimated_time")
+
+          if not new_time:
+              print("estimated_time is missing. Keep existing GitHub data.")
+              sys.exit(0)
+
+          def parse_time(value):
+              dt = datetime.fromisoformat(value)
+
+              if dt.tzinfo is None:
+                  dt = dt.replace(tzinfo=timezone.utc)
+
+              return dt
+
+          new_dt = parse_time(new_time)
+
+          # GitHubにまだファイルがない場合は保存
+          if not os.path.exists(old_file):
+              print("No existing file. Saving new HYCOM data.")
+              os.replace(new_file, old_file)
+              sys.exit(0)
+
+          with open(old_file, encoding="utf-8") as f:
+              old_data = json.load(f)
+
+          old_points = old_data.get("data", [])
+
+          if not old_points:
+              print("Existing data is empty. Saving new HYCOM data.")
+              os.replace(new_file, old_file)
+              sys.exit(0)
+
+          old_time = old_points[0].get("estimated_time")
+
+          if not old_time:
+              print("Existing estimated_time is missing. Saving new data.")
+              os.replace(new_file, old_file)
+              sys.exit(0)
+
+          old_dt = parse_time(old_time)
+
+          print("Existing:", old_dt.isoformat())
+          print("New     :", new_dt.isoformat())
+
+          # 新しいデータの時だけ保存
+          if new_dt > old_dt:
+              print("NEW HYCOM DATA -> UPDATE")
+              os.replace(new_file, old_file)
+          else:
+              print("NO NEW DATA -> KEEP EXISTING FILE")
+              os.remove(new_file)
+
+          PY
 
           sleep 5
 
