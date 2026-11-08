@@ -1,294 +1,294 @@
 {
   "status": "success",
-  "generated_at": "2026-11-08T03:11:32.973120+09:00",
+  "generated_at": "2026-11-09T03:10:59.947579+09:00",
   "data": [
     {
       "time": 0,
-      "estimated_time": "2026-11-08T00:00:00+09:00",
-      "speed": 0.23,
-      "direction": 257.21
-    },
-    {
-      "time": 1,
-      "estimated_time": "2026-11-08T01:00:00+09:00",
-      "speed": 0.46,
-      "direction": 247.14
-    },
-    {
-      "time": 2,
-      "estimated_time": "2026-11-08T02:00:00+09:00",
-      "speed": 0.56,
-      "direction": 241.27
-    },
-    {
-      "time": 3,
-      "estimated_time": "2026-11-08T03:00:00+09:00",
-      "speed": 0.48,
-      "direction": 233.62
-    },
-    {
-      "time": 4,
-      "estimated_time": "2026-11-08T04:00:00+09:00",
-      "speed": 0.24,
-      "direction": 210.48
-    },
-    {
-      "time": 5,
-      "estimated_time": "2026-11-08T05:00:00+09:00",
-      "speed": 0.25,
-      "direction": 100.97
-    },
-    {
-      "time": 6,
-      "estimated_time": "2026-11-08T06:00:00+09:00",
-      "speed": 0.62,
-      "direction": 77.79
-    },
-    {
-      "time": 7,
-      "estimated_time": "2026-11-08T07:00:00+09:00",
-      "speed": 0.93,
-      "direction": 73.26
-    },
-    {
-      "time": 8,
-      "estimated_time": "2026-11-08T08:00:00+09:00",
-      "speed": 1.08,
-      "direction": 72.65
-    },
-    {
-      "time": 9,
-      "estimated_time": "2026-11-08T09:00:00+09:00",
-      "speed": 1.07,
-      "direction": 73.69
-    },
-    {
-      "time": 10,
-      "estimated_time": "2026-11-08T10:00:00+09:00",
-      "speed": 0.92,
-      "direction": 75.56
-    },
-    {
-      "time": 11,
-      "estimated_time": "2026-11-08T11:00:00+09:00",
-      "speed": 0.65,
-      "direction": 78.56
-    },
-    {
-      "time": 12,
-      "estimated_time": "2026-11-08T12:00:00+09:00",
-      "speed": 0.31,
-      "direction": 87.91
-    },
-    {
-      "time": 13,
-      "estimated_time": "2026-11-08T13:00:00+09:00",
-      "speed": 0.11,
-      "direction": 187.74
-    },
-    {
-      "time": 14,
-      "estimated_time": "2026-11-08T14:00:00+09:00",
-      "speed": 0.33,
-      "direction": 231.02
-    },
-    {
-      "time": 15,
-      "estimated_time": "2026-11-08T15:00:00+09:00",
-      "speed": 0.42,
-      "direction": 235.36
-    },
-    {
-      "time": 16,
-      "estimated_time": "2026-11-08T16:00:00+09:00",
-      "speed": 0.3,
-      "direction": 236.45
-    },
-    {
-      "time": 17,
-      "estimated_time": "2026-11-08T17:00:00+09:00",
-      "speed": 0.01,
-      "direction": 284.16
-    },
-    {
-      "time": 18,
-      "estimated_time": "2026-11-08T18:00:00+09:00",
-      "speed": 0.35,
-      "direction": 53.76
-    },
-    {
-      "time": 19,
-      "estimated_time": "2026-11-08T19:00:00+09:00",
-      "speed": 0.66,
-      "direction": 54.87
-    },
-    {
-      "time": 20,
-      "estimated_time": "2026-11-08T20:00:00+09:00",
-      "speed": 0.84,
-      "direction": 56.03
-    },
-    {
-      "time": 21,
-      "estimated_time": "2026-11-08T21:00:00+09:00",
-      "speed": 0.84,
-      "direction": 57.32
-    },
-    {
-      "time": 22,
-      "estimated_time": "2026-11-08T22:00:00+09:00",
-      "speed": 0.7,
-      "direction": 58.13
-    },
-    {
-      "time": 23,
-      "estimated_time": "2026-11-08T23:00:00+09:00",
-      "speed": 0.45,
-      "direction": 57.13
-    },
-    {
-      "time": 24,
       "estimated_time": "2026-11-09T00:00:00+09:00",
       "speed": 0.12,
       "direction": 44.05
     },
     {
-      "time": 25,
+      "time": 1,
       "estimated_time": "2026-11-09T01:00:00+09:00",
       "speed": 0.23,
       "direction": 249.19
     },
     {
-      "time": 26,
+      "time": 2,
       "estimated_time": "2026-11-09T02:00:00+09:00",
       "speed": 0.51,
       "direction": 241.81
     },
     {
-      "time": 27,
+      "time": 3,
       "estimated_time": "2026-11-09T03:00:00+09:00",
       "speed": 0.64,
       "direction": 237.45
     },
     {
-      "time": 28,
+      "time": 4,
       "estimated_time": "2026-11-09T04:00:00+09:00",
       "speed": 0.54,
       "direction": 231.66
     },
     {
-      "time": 29,
+      "time": 5,
       "estimated_time": "2026-11-09T05:00:00+09:00",
       "speed": 0.26,
       "direction": 212.66
     },
     {
-      "time": 30,
+      "time": 6,
       "estimated_time": "2026-11-09T06:00:00+09:00",
       "speed": 0.25,
       "direction": 94.96
     },
     {
-      "time": 31,
+      "time": 7,
       "estimated_time": "2026-11-09T07:00:00+09:00",
       "speed": 0.64,
       "direction": 74.89
     },
     {
-      "time": 32,
+      "time": 8,
       "estimated_time": "2026-11-09T08:00:00+09:00",
       "speed": 0.94,
       "direction": 72.25
     },
     {
-      "time": 33,
+      "time": 9,
       "estimated_time": "2026-11-09T09:00:00+09:00",
       "speed": 1.06,
       "direction": 72.99
     },
     {
-      "time": 34,
+      "time": 10,
       "estimated_time": "2026-11-09T10:00:00+09:00",
       "speed": 1.0,
       "direction": 75.17
     },
     {
-      "time": 35,
+      "time": 11,
       "estimated_time": "2026-11-09T11:00:00+09:00",
       "speed": 0.79,
       "direction": 78.53
     },
     {
-      "time": 36,
+      "time": 12,
       "estimated_time": "2026-11-09T12:00:00+09:00",
       "speed": 0.48,
       "direction": 85.75
     },
     {
-      "time": 37,
+      "time": 13,
       "estimated_time": "2026-11-09T13:00:00+09:00",
       "speed": 0.16,
       "direction": 128.57
     },
     {
-      "time": 38,
+      "time": 14,
       "estimated_time": "2026-11-09T14:00:00+09:00",
       "speed": 0.31,
       "direction": 221.47
     },
     {
-      "time": 39,
+      "time": 15,
       "estimated_time": "2026-11-09T15:00:00+09:00",
       "speed": 0.51,
       "direction": 233.32
     },
     {
-      "time": 40,
+      "time": 16,
       "estimated_time": "2026-11-09T16:00:00+09:00",
       "speed": 0.52,
       "direction": 236.83
     },
     {
-      "time": 41,
+      "time": 17,
       "estimated_time": "2026-11-09T17:00:00+09:00",
       "speed": 0.3,
       "direction": 241.63
     },
     {
-      "time": 42,
+      "time": 18,
       "estimated_time": "2026-11-09T18:00:00+09:00",
       "speed": 0.11,
       "direction": 32.96
     },
     {
-      "time": 43,
+      "time": 19,
       "estimated_time": "2026-11-09T19:00:00+09:00",
       "speed": 0.55,
       "direction": 51.26
     },
     {
-      "time": 44,
+      "time": 20,
       "estimated_time": "2026-11-09T20:00:00+09:00",
       "speed": 0.89,
       "direction": 54.45
     },
     {
-      "time": 45,
+      "time": 21,
       "estimated_time": "2026-11-09T21:00:00+09:00",
       "speed": 1.06,
       "direction": 56.73
     },
     {
-      "time": 46,
+      "time": 22,
       "estimated_time": "2026-11-09T22:00:00+09:00",
       "speed": 1.04,
       "direction": 58.67
     },
     {
-      "time": 47,
+      "time": 23,
       "estimated_time": "2026-11-09T23:00:00+09:00",
       "speed": 0.85,
       "direction": 59.98
+    },
+    {
+      "time": 24,
+      "estimated_time": "2026-11-10T00:00:00+09:00",
+      "speed": 0.54,
+      "direction": 60.28
+    },
+    {
+      "time": 25,
+      "estimated_time": "2026-11-10T01:00:00+09:00",
+      "speed": 0.15,
+      "direction": 58.64
+    },
+    {
+      "time": 26,
+      "estimated_time": "2026-11-10T02:00:00+09:00",
+      "speed": 0.25,
+      "direction": 239.76
+    },
+    {
+      "time": 27,
+      "estimated_time": "2026-11-10T03:00:00+09:00",
+      "speed": 0.55,
+      "direction": 237.48
+    },
+    {
+      "time": 28,
+      "estimated_time": "2026-11-10T04:00:00+09:00",
+      "speed": 0.67,
+      "direction": 235.12
+    },
+    {
+      "time": 29,
+      "estimated_time": "2026-11-10T05:00:00+09:00",
+      "speed": 0.53,
+      "direction": 231.16
+    },
+    {
+      "time": 30,
+      "estimated_time": "2026-11-10T06:00:00+09:00",
+      "speed": 0.2,
+      "direction": 211.81
+    },
+    {
+      "time": 31,
+      "estimated_time": "2026-11-10T07:00:00+09:00",
+      "speed": 0.29,
+      "direction": 81.61
+    },
+    {
+      "time": 32,
+      "estimated_time": "2026-11-10T08:00:00+09:00",
+      "speed": 0.69,
+      "direction": 71.47
+    },
+    {
+      "time": 33,
+      "estimated_time": "2026-11-10T09:00:00+09:00",
+      "speed": 0.94,
+      "direction": 71.4
+    },
+    {
+      "time": 34,
+      "estimated_time": "2026-11-10T10:00:00+09:00",
+      "speed": 1.0,
+      "direction": 73.71
+    },
+    {
+      "time": 35,
+      "estimated_time": "2026-11-10T11:00:00+09:00",
+      "speed": 0.87,
+      "direction": 77.48
+    },
+    {
+      "time": 36,
+      "estimated_time": "2026-11-10T12:00:00+09:00",
+      "speed": 0.61,
+      "direction": 84.14
+    },
+    {
+      "time": 37,
+      "estimated_time": "2026-11-10T13:00:00+09:00",
+      "speed": 0.28,
+      "direction": 107.35
+    },
+    {
+      "time": 38,
+      "estimated_time": "2026-11-10T14:00:00+09:00",
+      "speed": 0.25,
+      "direction": 203.16
+    },
+    {
+      "time": 39,
+      "estimated_time": "2026-11-10T15:00:00+09:00",
+      "speed": 0.54,
+      "direction": 228.75
+    },
+    {
+      "time": 40,
+      "estimated_time": "2026-11-10T16:00:00+09:00",
+      "speed": 0.68,
+      "direction": 234.7
+    },
+    {
+      "time": 41,
+      "estimated_time": "2026-11-10T17:00:00+09:00",
+      "speed": 0.58,
+      "direction": 238.48
+    },
+    {
+      "time": 42,
+      "estimated_time": "2026-11-10T18:00:00+09:00",
+      "speed": 0.24,
+      "direction": 249.41
+    },
+    {
+      "time": 43,
+      "estimated_time": "2026-11-10T19:00:00+09:00",
+      "speed": 0.27,
+      "direction": 40.87
+    },
+    {
+      "time": 44,
+      "estimated_time": "2026-11-10T20:00:00+09:00",
+      "speed": 0.76,
+      "direction": 51.87
+    },
+    {
+      "time": 45,
+      "estimated_time": "2026-11-10T21:00:00+09:00",
+      "speed": 1.11,
+      "direction": 55.54
+    },
+    {
+      "time": 46,
+      "estimated_time": "2026-11-10T22:00:00+09:00",
+      "speed": 1.26,
+      "direction": 58.2
+    },
+    {
+      "time": 47,
+      "estimated_time": "2026-11-10T23:00:00+09:00",
+      "speed": 1.19,
+      "direction": 60.34
     }
   ]
 }
